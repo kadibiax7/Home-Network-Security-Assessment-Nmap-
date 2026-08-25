@@ -1,4 +1,4 @@
-# Nmap Home Network Assessment — Detailed Notes
+# Nmap Home Network Assessment 
 
 This document walks through the full process, in the order it was performed, with screenshots and reasoning for each step.
 
@@ -12,7 +12,7 @@ Before scanning, I identified my own subnet using:
 ip route
 ```
 
-![ip route output](./screenshots/02-ip-route.png)
+![ip route 02-ip-route.png](./files.md/02-ip-route.png)
 
 **Note:** I ran subsequent commands from a root shell (`sudo su`) rather than prefixing every command with `sudo`.
 
@@ -143,17 +143,11 @@ Disable the secondary web interface on port 8080 if the printer's admin settings
 
 | Rule | Printer (192.168.1.235) | Router (192.168.1.254) |
 |---|---|---|
-| 1. No Telnet/FTP exposed | ✅ Pass — neither port open | ✅ Pass — neither port open |
-| 2. Admin interface must use HTTPS, not just HTTP | ❌ Fail — port 80 (plain HTTP) is open alongside 443 | ❌ Fail — port 80 is open; no evidence of forced HTTPS |
-| 3. No duplicate service on multiple ports | ❌ Fail — web admin service duplicated on 80 and 8080 | ✅ Pass — no duplicated services observed |
+| 1. No Telnet/FTP exposed | Pass — neither port open | Pass — neither port open |
+| 2. Admin interface must use HTTPS, not just HTTP | Fail — port 80 (plain HTTP) is open alongside 443 | Fail — port 80 is open; no evidence of forced HTTPS |
+| 3. No duplicate service on multiple ports | Fail — web admin service duplicated on 80 and 8080 | Pass — no duplicated services observed |
 
 **Conclusion:** The printer fails 2 of 3 baseline checks, reinforcing the firewall audit finding above. The router fails the HTTPS-enforcement rule and would benefit from confirming whether its plain-HTTP admin login can be disabled in favor of HTTPS-only access.
-
----
-
-## 10. Reconnaissance Phase (Penetration Testing Context)
-
-The steps above — host discovery, port scanning, service/version detection, OS fingerprinting, and vulnerability scanning — map directly to the **reconnaissance phase** of an authorized penetration test. A full pentest would continue into exploitation (attempting to actually use a discovered weakness, e.g. testing default credentials) and post-exploitation phases, followed by a formal report. Since these devices are personally owned, further authorized testing (such as checking for default admin credentials) is a planned next step.
 
 ---
 
