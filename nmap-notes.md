@@ -18,7 +18,7 @@ ip route
 
 ---
 
-## 2. Host Discovery — Find Live Devices on the Network
+## Host Discovery: Find Live Devices on the Network
 
 **Goal:** Identify which IP addresses on the local subnet are active.
 
@@ -32,7 +32,7 @@ This scan found 6 live hosts out of 256 possible addresses in the subnet, includ
 
 ---
 
-## 3. Port Scanning — Check Open Ports on a Target Device
+## Port Scanning: Check Open Ports on a Target Device
 
 **Goal:** Determine which ports are open on a specific device.
 
@@ -48,7 +48,7 @@ Result: 5 open ports: 80, 443, 631, 8080, 9100.
 
 ---
 
-## 4. Service / Version Detection
+## Service / Version Detection
 
 **Goal:** Identify the actual software and version behind each open port, rather than just guessing from the port number.
 
@@ -62,7 +62,7 @@ This revealed the device as an **HP DeskJet 2700 series printer**, with each web
 
 ---
 
-## 5. OS Fingerprinting
+## OS Fingerprinting
 
 **Goal:** Guess the underlying OS/device type based on how it responds to network probes.
 
@@ -76,7 +76,7 @@ Result: Correctly identified as an embedded printer device (HP LaserJet-family O
 
 ---
 
-## 6. Vulnerability Scanning (NSE Scripts)
+## Vulnerability Scanning (NSE Scripts)
 
 **Goal:** Use Nmap's built-in scripting engine to check for known vulnerabilities.
 
@@ -90,7 +90,7 @@ nmap --script vuln 192.168.1.235
 
 ---
 
-## 7. Network Inventory / Asset Mapping
+## Network Inventory / Asset Mapping
 
 **Goal:** Turn scattered scan results into an organized picture of everything on the network, with a basic risk rating for each device.
 
@@ -107,7 +107,7 @@ nmap --script vuln 192.168.1.235
 
 ---
 
-## 8. Firewall / Security Audit
+## Firewall / Security Audit
 
 **Goal:** Determine whether each open port on the printer is actually necessary, or represents unnecessary attack surface.
 
@@ -132,7 +132,7 @@ Disable the secondary web interface on port 8080 if the printer's admin settings
 
 ---
 
-## 9. Compliance Baseline Check
+## Compliance Baseline Check
 
 **Goal:** Compare scan results against a simple written security baseline, rather than relying on ad-hoc judgment alone.
 
