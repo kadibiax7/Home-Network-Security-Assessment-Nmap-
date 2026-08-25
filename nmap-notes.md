@@ -44,7 +44,7 @@ nmap 192.168.1.235
 
 ![port scan on printer](./files.md/04-port-scan-printer.png)
 
-Result: 5 open ports — 80, 443, 631, 8080, 9100.
+Result: 5 open ports: 80, 443, 631, 8080, 9100.
 
 ---
 
