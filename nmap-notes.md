@@ -26,7 +26,7 @@ ip route
 nmap 192.168.1.0/24
 ```
 
-![network discovery scan](./file.md/01-network-discovery.png)
+![network discovery scan](./files.md/01-network-discovery.png)
 
 This scan found 6 live hosts out of 256 possible addresses in the subnet, including my own laptop, a phone, a game console, a smart-home device, a networked printer, and the gateway/router.
 
@@ -42,7 +42,7 @@ I selected the HP printer (192.168.1.235) as the primary target for deeper analy
 nmap 192.168.1.235
 ```
 
-![port scan on printer](./file.md/04-port-scan-printer.png)
+![port scan on printer](./files.md/04-port-scan-printer.png)
 
 Result: 5 open ports — 80, 443, 631, 8080, 9100.
 
@@ -56,7 +56,7 @@ Result: 5 open ports — 80, 443, 631, 8080, 9100.
 nmap -sV 192.168.1.235
 ```
 
-![service version detection](./file.md/03-service-version-detection.png)
+![service version detection](./files.md/03-service-version-detection.png)
 
 This revealed the device as an **HP DeskJet 2700 series printer**, with each web-facing port running the printer's embedded HTTP config service.
 
@@ -70,7 +70,7 @@ This revealed the device as an **HP DeskJet 2700 series printer**, with each web
 nmap -O 192.168.1.235
 ```
 
-![os fingerprinting](./file.md/05-os-fingerprinting.png)
+![os fingerprinting](./files.md/05-os-fingerprinting.png)
 
 Result: Correctly identified as an embedded printer device (HP LaserJet-family OS fingerprint), one network hop away.
 
@@ -84,7 +84,7 @@ Result: Correctly identified as an embedded printer device (HP LaserJet-family O
 nmap --script vuln 192.168.1.235
 ```
 
-![vulnerability scan](./file.md/06-vuln-scan.png)
+![vulnerability scan](./files.md/06-vuln-scan.png)
 
 **Result:** Both port 80 and port 8080 were flagged **"LIKELY VULNERABLE"** to a **Slowloris Denial-of-Service attack** (CVE-2007-6750). Slowloris works by opening many partial HTTP connections and holding them open, exhausting the target's connection pool until it can no longer respond to legitimate requests.
 
