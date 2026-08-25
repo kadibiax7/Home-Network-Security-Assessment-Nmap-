@@ -147,7 +147,7 @@ Disable the secondary web interface on port 8080 if the printer's admin settings
 | 2. Admin interface must use HTTPS, not just HTTP | Fail — port 80 (plain HTTP) is open alongside 443 | Fail — port 80 is open; no evidence of forced HTTPS |
 | 3. No duplicate service on multiple ports | Fail — web admin service duplicated on 80 and 8080 | Pass — no duplicated services observed |
 
-**Conclusion:** The printer fails 2 of 3 baseline checks, reinforcing the firewall audit finding above. The router fails the HTTPS-enforcement rule and would benefit from confirming whether its plain-HTTP admin login can be disabled in favor of HTTPS-only access.
+The printer fails 2 of 3 baseline checks, reinforcing the firewall audit finding above. The router fails the HTTPS-enforcement rule and would benefit from confirming whether its plain-HTTP admin login can be disabled in favor of HTTPS-only access.
 
 ---
 
