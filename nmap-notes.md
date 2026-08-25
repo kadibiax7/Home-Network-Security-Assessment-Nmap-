@@ -4,7 +4,7 @@ This document walks through the full process, in the order it was performed, wit
 
 ---
 
-## 1. Setup — Identifying My IP Range
+## Identifying My IP Range
 
 Before scanning, I identified my own subnet using:
 
