@@ -6,7 +6,11 @@ This document walks through the full process, in the order it was performed, wit
 
 ## Identifying My IP Range
 
-Before scanning, I identified my own subnet using:`ip route`
+Before scanning, I identified my own subnet using:
+
+```
+ip route
+```
 
 ![ip route 02-ip-route.png](./files.md/02-ip-route.png)
 
